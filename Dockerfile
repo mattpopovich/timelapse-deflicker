@@ -12,8 +12,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
-# Install deflicker locally in editable mode
-RUN pip3 install -e .
-
 # Copy project code into the image
 COPY . .
+
+# Install deflicker locally in editable mode
+RUN pip3 install -e .
