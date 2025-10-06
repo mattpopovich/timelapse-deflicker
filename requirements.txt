@@ -2,3 +2,5 @@ docopt
 progressbar2
 numpy
 scikit-image
+schema
+setuptools
