@@ -10,13 +10,16 @@ import pkg_resources
 __version__ = pkg_resources.require('deflicker')[0].version
 
 
-def rolling_mean(data, window):
+def rolling_mean(brightness_data: np.ndarray, window: int) -> np.ndarray:
     ''' compute the rolling mean of the data over the given window '''
 
-    result = np.full_like(data, np.nan)
+    # Initialize result array (same size as brightness_data) with NaNs
+    # NaN is invalid with integers, so must be float type
+    result = np.full_like(brightness_data, np.nan, dtype=np.float32)
 
-    conv = np.convolve(data, np.ones(window)/window, mode='valid')
-    result[(len(data) - len(conv))//2: (len(conv) - len(data))//2] = conv
+    # Convolve with normalized window of ones, effectively computing a moving average
+    conv = np.convolve(brightness_data, np.ones(window)/window, mode='valid')
+    result[(len(brightness_data) - len(conv))//2: (len(conv) - len(brightness_data))//2] = conv
 
     return result
 
