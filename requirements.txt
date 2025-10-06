@@ -4,3 +4,4 @@ numpy
 scikit-image
 schema
 setuptools
+pytest
