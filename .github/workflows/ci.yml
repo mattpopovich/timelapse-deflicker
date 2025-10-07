@@ -33,7 +33,7 @@ jobs:
         pip install -r requirements.txt
         pip install -e .  # Install the deflicker package in editable mode
 
-    - name: Run deflicker script inside Docker
+    - name: Run deflicker script with sample images
       run: |
         python3 deflicker/__main__.py -h
 
@@ -48,6 +48,6 @@ jobs:
         python3 deflicker/__main__.py images -f jpg
         python3 deflicker/__main__.py images -s 3.5
 
-    - name: Run pytest inside Docker
+    - name: Run pytest
       run: |
         pytest
