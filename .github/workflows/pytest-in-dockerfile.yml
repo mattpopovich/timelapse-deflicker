@@ -39,13 +39,13 @@ jobs:
 
         # Download some images, put them into a folder
         mkdir -p images
-        curl -o images/image-112#1.jpg https://raw.githubusercontent.com/yavuzceliker/sample-images/refs/heads/main/docs/image-112[0-5].jpg
+        curl -o images/image-111#1.jpg https://raw.githubusercontent.com/yavuzceliker/sample-images/refs/heads/main/docs/image-111[0-5].jpg
 
         # Run deflicker with various options
         python3 deflicker/__main__.py images
         python3 deflicker/__main__.py images -o output_images
         python3 deflicker/__main__.py images -w 2
-        python3 deflicker/__main__.py images -f png
+        python3 deflicker/__main__.py images -f jpg
         python3 deflicker/__main__.py images -s 3.5
 
     - name: Run pytest inside Docker
