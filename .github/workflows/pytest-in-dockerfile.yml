@@ -36,19 +36,17 @@ jobs:
     - name: Run deflicker script inside Docker
       run: |
         python3 deflicker/__main__.py -h
-        # Download some images, run deflicker on them
-        curl -O https://www.python.org/static/img/python-logo.png
-        curl -O https://www.python.org/static/community_logos/python-powered-w-100x40.png
-        curl -O https://www.python.org/static/community_logos/python-powered-h-50x65.png
-        mkdir python_images
-        mv python-logo.png python_images/
-        mv python-powered-w-100x40.png python_images/
-        mv python-powered-h-50x65.png python_images/
-        python3 deflicker/__main__.py python_images
-        python3 deflicker/__main__.py python_images -o output_images
-        python3 deflicker/__main__.py python_images -w 2
-        python3 deflicker/__main__.py python_images -f png
-        python3 deflicker/__main__.py python_images -s 3.5
+
+        # Download some images, put them into a folder
+        mkdir -p images
+        curl -o images/image-112#1.jpg https://raw.githubusercontent.com/yavuzceliker/sample-images/refs/heads/main/docs/image-112[0-5].jpg
+
+        # Run deflicker with various options
+        python3 deflicker/__main__.py images
+        python3 deflicker/__main__.py images -o output_images
+        python3 deflicker/__main__.py images -w 2
+        python3 deflicker/__main__.py images -f png
+        python3 deflicker/__main__.py images -s 3.5
 
     - name: Run pytest inside Docker
       run: |
