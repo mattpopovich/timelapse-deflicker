@@ -79,5 +79,3 @@ def test_rolling_mean_static():
     assert len(target_brightness) == len(brightness)
     expected_target_brightness = np.array([np.nan, np.nan, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, np.nan, np.nan, np.nan], dtype=np.float32)
     assert np.array_equal(target_brightness, expected_target_brightness, equal_nan=True)
-
-# TODO: Would like to test that the image read in has the same resolution as expected
