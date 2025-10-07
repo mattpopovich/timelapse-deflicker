@@ -30,8 +30,8 @@ jobs:
     
     - name: Install dependencies
       run: |
-        # python3 -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install -e .  # Install the deflicker package in editable mode
 
     - name: Run deflicker script inside Docker
       run: |
