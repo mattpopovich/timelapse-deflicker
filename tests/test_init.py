@@ -7,11 +7,8 @@ import numpy as np
 
 from deflicker.__init__ import calc_brightness, rolling_mean, scale_image_brightness
 
-
-python_logo_url = "https://www.python.org/static/img/python-logo.png"
-python_powered_url = "https://www.python.org/static/community_logos/python-powered-w-100x40.png"
-python_powered_small_url = "https://www.python.org/static/community_logos/python-powered-h-50x65.png"
-urls = [python_logo_url, python_powered_url, python_powered_small_url]
+base_url = "https://raw.githubusercontent.com/yavuzceliker/sample-images/refs/heads/main/docs/"
+urls = [f"{base_url}image-111{i}.jpg" for i in range(3)]
 
 
 def test_calc_brightness_static():
@@ -19,7 +16,7 @@ def test_calc_brightness_static():
     assert brightness is not None
     assert all(isinstance(b, float) for b in brightness)
     assert len(brightness) == len(urls)
-    expected_brightness = [194.6696, 226.9476, 231.7199]
+    expected_brightness = [125.0928, 139.1198, 128.8109]
     assert brightness == pytest.approx(expected_brightness, abs=0.0001)
 
 def test_scale_image_brightness_static():

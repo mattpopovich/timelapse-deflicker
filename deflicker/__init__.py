@@ -48,8 +48,8 @@ def find_images(directory, extensions=['.jpg', '.png', '.tiff', '.tif']):
     )
     return sorted(images)
 
-
-def calc_brightness(images, sigma=2.5):
+def calc_brightness(images: list[str], sigma=2.5) -> np.ndarray[np.float32]:
+    ''' Given a list of image filenames, calculate their brightness. '''
     logger = logging.getLogger()
     logger.info('Calculating brightness of the images')
 
