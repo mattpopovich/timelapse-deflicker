@@ -44,11 +44,11 @@ jobs:
         mv python-logo.png python_images/
         mv python-powered-w-100x40.png python_images/
         mv python-powered-h-50x65.png python_images/
-        python3 deflicker/__main__.py -i python_images
-        python3 deflicker/__main__.py -i python_images -o output_images
-        python3 deflicker/__main__.py -i python_images -w 2
-        python3 deflicker/__main__.py -i python_images -f png
-        python3 deflicker/__main__.py -i python_images -s 3.5
+        python3 deflicker/__main__.py python_images
+        python3 deflicker/__main__.py python_images -o output_images
+        python3 deflicker/__main__.py python_images -w 2
+        python3 deflicker/__main__.py python_images -f png
+        python3 deflicker/__main__.py python_images -s 3.5
 
     - name: Run pytest inside Docker
       run: |
